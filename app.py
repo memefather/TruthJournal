@@ -29,7 +29,7 @@ else:
 
 with st.sidebar:
     st.subheader("Top Stories")
-    choice = st.radio("Dispell the myths:",
+    choice = st.radio("Dispel the myths:",
         (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4]))
 
 st.title("TruthJournal ✔️")
@@ -51,7 +51,7 @@ def ChatGPT_conversation(conversation):
     return conversation
     
 """
-Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked by me. ✅️ You read it here first!
+Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked by yours truly, Donald. ✅️
 """
 
 def wwts(conversation):
