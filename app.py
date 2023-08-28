@@ -32,7 +32,7 @@ with st.sidebar:
     choice = st.radio("Dispell the myths:",
         (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4]))
 
-st.title("TruthJournal✔️")
+st.title("TruthJournal ✔️")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 model_id = 'gpt-3.5-turbo'
@@ -55,7 +55,7 @@ Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked 
 """
 
 def wwts(conversation):
-    st.markdown(choice)
+    st.header(choice)
     st.image('https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/AP19221537019210.jpg')
     prompt = headlines[choice]
     conversation.append({'role': 'user', 'content': prompt})
@@ -63,7 +63,7 @@ def wwts(conversation):
     st.write('\n')  # add spacing
     with st.expander("The Truth", expanded=True):
         output = conversation[-1]['content'].strip()
-        st.markdown(output)  #output the results
+        st.markdown(output.replace("$", ""))  #output the results
 
 if __name__ == '__main__':
     # call main function
