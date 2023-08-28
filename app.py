@@ -18,19 +18,19 @@ all_articles = newsapi.get_everything(q='Trump',
 headlines = {}
 radiohead = []
 
-if len(all_articles['articles']) <= 10:
+if len(all_articles['articles']) <= 8:
     for i in all_articles['articles']:
         headlines[i['title']] = i['title'] + '. ' + i['description']
         radiohead.append(i['title'])
 else:
-    for i in all_articles['articles'][0:10]:
+    for i in all_articles['articles'][0:8]:
         headlines[i['title']] = i['title'] + '. ' + i['description']
         radiohead.append(i['title'])
 
 with st.sidebar:
     st.subheader("Top Stories")
     choice = st.radio("Dispel the myths:",
-        (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4],radiohead[5], radiohead[6], radiohead[7], radiohead[8], radiohead[9]))
+        (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4],radiohead[5], radiohead[6], radiohead[7]))
 
 st.title("TruthJournal ✔️")
 
