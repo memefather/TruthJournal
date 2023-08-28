@@ -57,7 +57,7 @@ Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked 
 def wwts(conversation):
     st.markdown(choice)
     st.image('https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/AP19221537019210.jpg')
-    promt = headlines[choice]
+    prompt = headlines[choice]
     conversation.append({'role': 'user', 'content': prompt})
     conversation = ChatGPT_conversation(conversation)
     st.write('\n')  # add spacing
