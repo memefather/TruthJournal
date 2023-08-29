@@ -32,10 +32,6 @@ with st.sidebar:
     st.subheader("Top Stories")
     choice = st.radio("Dispel the myths:",
         (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4],radiohead[5], radiohead[6], radiohead[7]))
-    prompt = headlines[choice]
-    conversation.append({'role': 'user', 'content': prompt})
-    if st.button('Dispel'):
-        conversation = ChatGPT_conversation(conversation)
 
 st.title("TruthJournal ✔️")
 
@@ -62,10 +58,14 @@ Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked 
 def wwts(conversation):
     st.header(choice)
     st.image('https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/AP19221537019210.jpg')
+    prompt = headlines[choice]
+    conversation.append({'role': 'user', 'content': prompt})
     st.write('\n')  # add spacing
-    with st.expander("The Truth", expanded=True):
-        output = conversation[-1]['content'].strip()
-        st.markdown(output.replace("$", ""))  #output the results
+    if st.button('Dispel'):
+        conversation = ChatGPT_conversation(conversation)
+        with st.expander("The Truth", expanded=True):
+            output = conversation[-1]['content'].strip()
+            st.markdown(output.replace("$", ""))  #output the results
 
 
 if __name__ == '__main__':
