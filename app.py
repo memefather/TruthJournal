@@ -66,7 +66,7 @@ def wwts(conversation):
         output = conversation[-1]['content'].strip()
         st.markdown(output.replace("$", ""))  #output the results
 
-button(username="fake-username", floating=False, width=221)
+button(username="digitalmagic", floating=False, width=221)
 
 if __name__ == '__main__':
     # call main function
