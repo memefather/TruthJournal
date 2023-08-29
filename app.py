@@ -4,6 +4,7 @@ import openai
 from stable import stableai
 from newsapi import NewsApiClient
 from datetime import date, timedelta
+from streamlit_extras.buy_me_a_coffee import button
 
 # Init
 newsapi = NewsApiClient(api_key=os.getenv("NEWS_API_KEY"))
@@ -64,6 +65,8 @@ def wwts(conversation):
     with st.expander("The Truth", expanded=True):
         output = conversation[-1]['content'].strip()
         st.markdown(output.replace("$", ""))  #output the results
+
+button(username="fake-username", floating=False, width=221)
 
 if __name__ == '__main__':
     # call main function
