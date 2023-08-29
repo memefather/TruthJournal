@@ -73,4 +73,4 @@ if __name__ == '__main__':
     conversation = []
     conversation.append({'role': 'system', 'content': 'I will give you a news article and you will rewrite it in the tone of Donald Trump.'})
     wwts(conversation)
-    button(username="digitalmagic", floating=False, width=200)
+    button(username="digitalmagic", floating=False, width=221)
