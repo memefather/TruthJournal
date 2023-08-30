@@ -6,6 +6,14 @@ from newsapi import NewsApiClient
 from datetime import date, timedelta
 from streamlit_extras.buy_me_a_coffee import button
 
+hide = """
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide, unsafe_allow_html=True)
+
 # Init
 newsapi = NewsApiClient(api_key=os.getenv("NEWS_API_KEY"))
 
