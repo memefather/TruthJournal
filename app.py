@@ -8,6 +8,7 @@ from streamlit_extras.buy_me_a_coffee import button
 
 hide = """
     <style>
+        #GithubIcon {visibility: hidden;}
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
     </style>
