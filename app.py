@@ -32,7 +32,6 @@ with st.sidebar:
     st.subheader("Top Stories")
     choice = st.radio("Dispel the myths:",
         (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4],radiohead[5], radiohead[6], radiohead[7]))
-    start = st.button('Dispel')
 st.title("TruthJournal ✔️")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -61,7 +60,7 @@ def wwts(conversation):
     prompt = headlines[choice]
     conversation.append({'role': 'user', 'content': prompt})
     st.write('\n')  # add spacing
-    if start:
+    if st.button('Dispel'):
         conversation = ChatGPT_conversation(conversation)
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
