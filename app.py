@@ -60,7 +60,7 @@ def wwts(conversation):
     prompt = headlines[choice]
     conversation.append({'role': 'user', 'content': prompt})
     st.write('\n')  # add spacing
-    if st.button('Dispel'):
+    if True:
         conversation = ChatGPT_conversation(conversation)
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
