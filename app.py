@@ -8,9 +8,7 @@ from streamlit_extras.buy_me_a_coffee import button
 
 hide = """
     <style>
-        #GithubIcon {visibility: hidden;}
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
+.css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137, .viewerBadge_text__1JaDK{ display: none; } #MainMenu{ visibility: hidden; } footer { visibility: hidden; } header { visibility: hidden; }
     </style>
 """
 st.markdown(hide, unsafe_allow_html=True)
