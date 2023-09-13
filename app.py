@@ -46,6 +46,7 @@ st.title("TruthJournal ✔️")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 model_id = 'gpt-3.5-turbo'
 
+@st.cache_data
 def ChatGPT_conversation(conversation):
     response = openai.ChatCompletion.create(
         model=model_id,
