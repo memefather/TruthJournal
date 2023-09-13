@@ -5,6 +5,7 @@ from stable import stableai
 from newsapi import NewsApiClient
 from datetime import date, timedelta
 from streamlit_extras.buy_me_a_coffee import button
+from fakeyou import FakeYou
 
 st.markdown(
     """
