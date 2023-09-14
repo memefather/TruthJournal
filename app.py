@@ -85,7 +85,7 @@ def wwts(conversation):
             output = conversation[-1]['content'].strip()
             tts_holder = st.empty()
             st.markdown(output.replace("$", ""))  #output the results
-            tts = text_to_speech(output[0:170])
+            tts = text_to_speech(output[0:180])
             with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
                 tts.save(fp.name)
                 tts_holder.audio(fp.name, format="audio/wav")
