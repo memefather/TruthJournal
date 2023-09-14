@@ -85,10 +85,10 @@ def wwts(conversation):
             output = conversation[-1]['content'].strip()
             tts_holder = st.empty()
             st.markdown(output.replace("$", ""))  #output the results
-            tts = text_to_speech("I'm trump voice can you hear me.")
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
+            tts = text_to_speech(output[0:100])
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
                 tts.save(fp.name)
-                tts_holder.audio(fp.name, format="audio/mp3")
+                tts_holder.audio(fp.name, format="audio/wav")
             
 if __name__ == '__main__':
     # call main function
