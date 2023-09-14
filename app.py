@@ -6,6 +6,10 @@ from newsapi import NewsApiClient
 from datetime import date, timedelta
 from streamlit_extras.buy_me_a_coffee import button
 from fakeyou import FakeYou
+import tempfile
+
+fakeyou = FakeYou()
+fakeyou.login(os.getenv("FY_USER"), os.getenv("FY_PASS"))
 
 st.markdown(
     """
@@ -64,6 +68,11 @@ def ChatGPT_conversation(conversation):
 Get your un-biased first hand news from TruthJournal! 📰️ 100% fact checked by yours truly, Donald. ✅️
 """
 
+@st.cache_data
+def text_to_speech(text):
+    tts_result = fakeyou.say(text, "TM:03690khwpsbz")
+    return tts_result
+
 def wwts(conversation):
     st.header(choice)
     st.image('https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/AP19221537019210.jpg')
@@ -74,6 +83,10 @@ def wwts(conversation):
         conversation = ChatGPT_conversation(conversation)
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
+            tts = text_to_speech(text)
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
+                    tts.save(fp.name)
+                    st.audio(fp.name, format="audio/mp3")
             st.markdown(output.replace("$", ""))  #output the results
 
 
