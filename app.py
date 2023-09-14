@@ -83,13 +83,13 @@ def wwts(conversation):
         conversation = ChatGPT_conversation(conversation)
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
+            tts_holder = st.empty()
+            st.markdown(output.replace("$", ""))  #output the results
             tts = text_to_speech("I'm trump voice can you hear me.")
             with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
                 tts.save(fp.name)
-                st.audio(fp.name, format="audio/mp3")
-            st.markdown(output.replace("$", ""))  #output the results
-
-
+                tts_holder.audio(fp.name, format="audio/mp3")
+            
 if __name__ == '__main__':
     # call main function
     conversation = []
