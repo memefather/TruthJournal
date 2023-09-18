@@ -8,6 +8,7 @@ from streamlit_extras.buy_me_a_coffee import button
 from fakeyou import FakeYou
 import tempfile
 
+st.set_page_config(page_icon="📰", page_title="TruthJournal")
 fakeyou = FakeYou()
 fakeyou.login(os.getenv("FY_USER"), os.getenv("FY_PASS"))
 
