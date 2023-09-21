@@ -27,7 +27,7 @@ all_articles = newsapi.get_everything(q='Trump',
                                       language='en',
                                       from_param= date.today()-timedelta(days = 30),
                                       sources='cnn',
-                                      sort_by='relevancy',
+                                      sort_by='publishedAt',
                                       page = 1
                                       )
 headlines = {}
@@ -38,9 +38,10 @@ if len(all_articles['articles']) <= 8:
         headlines[i['title']] = i['title'] + '. ' + i['description']
         radiohead.append(i['title'])
 else:
-    for i in all_articles['articles'][0:8]:
-        headlines[i['title']] = i['title'] + '. ' + i['description']
-        radiohead.append(i['title'])
+    for x in all_articles['articles']:
+        if ("trump" in x['title'] or "Trump" in x['title'] or "trump" in x['description'] or "Trump" in x['description']) and len(radiohead) > 8:
+            headlines[x['title']] = x['title'] + '. ' + x['description']
+            radiohead.append(i['title'])
 
 with st.sidebar:
     st.subheader("Top Stories")
