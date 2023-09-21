@@ -41,12 +41,14 @@ else:
     for x in all_articles['articles']:
         if ("trump" in x['title'] or "Trump" in x['title'] or "trump" in x['description'] or "Trump" in x['description']) and len(radiohead) > 8:
             headlines[x['title']] = x['title'] + '. ' + x['description']
-            radiohead.append(i['title'])
+            radiohead.append(x['title'])
 
 with st.sidebar:
     st.subheader("Top Stories")
-    choice = st.radio("Dispel the myths:",
-        (radiohead[0], radiohead[1], radiohead[2], radiohead[3], radiohead[4],radiohead[5], radiohead[6], radiohead[7]))
+    if len(radiohead) > 8:
+        choice = st.radio("Dispel the myths:", radiohead[0:7])
+    else:
+        choice = st.radio("Dispel the myths:", radiohead)
 st.title("TruthJournal ✔️")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
