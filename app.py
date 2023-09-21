@@ -39,7 +39,7 @@ if len(all_articles['articles']) <= 8:
         radiohead.append(i['title'])
 else:
     for x in all_articles['articles']:
-        if ("trump" in x['title'] or "Trump" in x['title'] or "trump" in x['description'] or "Trump" in x['description']) and len(radiohead) > 8:
+        if ("trump" in x['title'] or "Trump" in x['title'] or "trump" in x['description'] or "Trump" in x['description']) and len(radiohead) < 8:
             headlines[x['title']] = x['title'] + '. ' + x['description']
             radiohead.append(x['title'])
 
