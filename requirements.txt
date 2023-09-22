@@ -4,3 +4,4 @@ stability_sdk
 streamlit_extras
 newsapi-python==0.2.7
 fakeyou
+streamlit-extras
