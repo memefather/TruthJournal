@@ -89,7 +89,7 @@ def wwts(conversation):
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
             tts_holder = st.empty()
-            st.write(output.replace("$", ""))  #output the results
+            write(output.replace("$", ""))  #output the results
             tts = text_to_speech(output[0:200])
             with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
                 tts.save(fp.name)
