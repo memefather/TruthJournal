@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from streamlit_extras.buy_me_a_coffee import button
 from fakeyou import FakeYou
 import tempfile
+from streamlit_extras.streaming_write import write
 
 st.set_page_config(page_icon="📰", page_title="TruthJournal")
 fakeyou = FakeYou()
@@ -88,7 +89,7 @@ def wwts(conversation):
         with st.expander("The Truth", expanded=True):
             output = conversation[-1]['content'].strip()
             tts_holder = st.empty()
-            st.markdown(output.replace("$", ""))  #output the results
+            st.write(output.replace("$", ""))  #output the results
             tts = text_to_speech(output[0:200])
             with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
                 tts.save(fp.name)
