@@ -57,7 +57,7 @@ model_id = 'gpt-3.5-turbo'
 
 @st.cache_data
 def ChatGPT_conversation(conversation):
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model=model_id,
         messages=conversation
     )
